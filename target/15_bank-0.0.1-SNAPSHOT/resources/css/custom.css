@@ -1,0 +1,318 @@
+.advertise {
+	border: solid .2rem #34495E;
+	padding: 1rem;
+	margin-bottom: 2rem;
+}
+
+#ad-highlight {
+	box-shadow: 0px 0px 8px #7F8C8D;
+}
+
+.adImage {
+	display: block;
+}
+
+.adImage img {
+	width: 6rem;
+}
+
+.addText {
+	font-size: 2rem;
+	font-weight: bold;
+	display: block !important;
+} 
+
+.adText {
+	font-size: 2rem;
+	font-weight: bold;
+	display: block !important;
+}
+
+#screenView {
+	border: solid .5rem #BDC3C7;
+	border-radius: 1rem;
+	box-shadow: -.2rem .3rem 0rem #95A5A6, .2rem .3rem 0rem #95A5A6;
+}
+
+#pinPad {
+	display: inline-block;
+	
+}
+#pinPad.account {
+	display: inline-block;
+	float: left;
+}
+
+#pinPad td {
+	padding: 1rem;
+}
+
+#pinPad a {
+	font-size: 3rem;
+	padding: 1rem 3rem;
+}
+#pinPad.transfer a {
+	font-size: 3rem;
+	padding: 1rem 1.70rem;
+}
+
+#confirmPin {
+	display: block;
+	float: left;
+	margin-left: 1rem;
+	margin-top: 1rem;
+}
+
+#confirmPin a {
+	text-align: center;
+	font-size: 5rem;
+	padding: 5rem 3rem;
+}
+
+#cancelTransaction {
+	display: block;
+	float: right;
+	margin-right: 90px;
+}
+
+#btnConfirm {
+	padding: 1.5rem 0;
+	font-size: 3rem;
+	width: 8em;
+}
+
+.btn-padding {
+	padding: 1.5rem 0;
+	font-size: 3rem;
+	width: 6em;
+}
+.tile.movements {
+	overflow-y: auto;
+    max-height: 350px;
+}
+
+.tile {
+	border: solid 1px #CCC;
+}
+
+
+.tile:hover {
+	background-color: #cecece;
+	cursor: pointer;
+}
+
+.tile h6 {
+	font-size: 2rem;
+	padding: 0rem 0;
+}
+
+.tile>label {
+	display: block;
+}
+
+.accountsListItem>span {
+	display: inline-block;
+	width: 20em;
+}
+
+span.icon {
+	display: inline-block;
+	width: 2rem;
+	float: right;
+	color: #BDC3C7;
+}
+
+h4.balance {
+	text-align: left;
+	padding: 0 2em;
+}
+
+h4.balance span {
+	color: #95A5A6;
+	display: inline-block;
+	width: 6em;
+}
+
+.modalList {
+	margin-bottom: 1em;
+}
+
+.modalList>p {
+	font-size: 2rem;
+	text-align: left;
+	margin-bottom: 0;
+	padding: 1rem 0;
+}
+
+.modalList>p>span {
+	display: inline-block;
+	width: 18em
+}
+
+button.routingButton {
+	margin-top: 1rem;
+	padding: 1em 0;
+	font-size: 2rem;
+	width: 100%;
+}
+
+#btnDelete {
+	color: yellow;
+}
+
+#qcCustomNumber, 
+#qcCustomNumberCheck {
+	height: 30px;
+	font-size: 28px;
+	font-weight: bold;
+	color: black;
+}
+
+#idAccountFrom,
+#idAccountTo {
+	text-align: center;
+	height: 30px;
+	font-weight: bold;
+	font-size: 25px;
+	max-width: 65%;
+	color: black;
+}
+
+#init {
+	margin: 20%;
+	max-width: 350px;
+	padding: 50px;
+	font-size: 35px;
+}
+
+#pin {
+	font-size: 55px; 
+	height: 80px
+}
+
+#qcWithdrawFounds,
+#qcTransferFounds {
+	height: 55px;
+	font-size: 50px;
+	font-weight: bold;
+	color: black;
+}
+
+input[type=text], #dateInit, #dateEnd {
+	pointer-events: none;
+}
+
+#toAccountInput, 
+#dateInit, 
+#dateEnd,
+#name,
+#lastName,
+#dni,
+#address,
+#accountType {
+	pointer-events: all;
+}
+
+#tdConfirButton.disabled {
+	cursor: not-allowed !important;
+}
+
+#btnConfirm.disabled {
+	cursor: not-allowed !important;
+}
+
+#saldo {
+	font-weight: bold;;
+	font-size: 20px;
+}
+
+.lblDate {
+	font-weight: bold;
+	font-size: 25px;
+	font-family: lato San Serif
+}
+
+.negative {
+	color: red;
+	font-weight: bold;
+}
+
+.can.negative:before {
+	content: "-";
+}
+
+.adm {
+  border: solid 1px #CCC;
+  border-top: none;
+  border-bottom: none;
+}
+
+.adm-main {
+  margin-top: 50px;
+}
+
+.tile.nv {
+	height: 105px;
+	visibility:hidden
+}
+
+.form-control:focus {
+     color: #495057;
+     background-color: #fff;
+     border-color: #76b7e9;
+     outline: 0;
+     box-shadow: 0 0 0 0px #28a745
+ }
+
+#nameErr,
+#dniErr,
+#emailErr,
+#dniErrLength,
+#accountErr,
+#accountErrLength,
+#accountTypeErr {
+	display: none;
+	font: bold italic small serif;
+}
+
+#lblClients {
+	margin-left: 1.2rem!important;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.accountdelete {
+	margin-left: 120px;
+}
+
+#accounts.delete { 
+	width: 220px;
+}
+
+#clients.delete { 
+	width: 280px;
+}
+
+#clients, #accounts {
+	margin-left: 1.2rem!important;
+	width: 50%;
+}
+
+
+.form-outline input {
+	height: 50px
+}
+
+.form-outline input {
+	font-size: 20px;
+    text-align: center;
+}
+
+.form-outline label {
+	font-size: 20px;
+}
+
+.form-outline textarea {
+	font-size: 20px;
+	text-align: inherit;
+}
