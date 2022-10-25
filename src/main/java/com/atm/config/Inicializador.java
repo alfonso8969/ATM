@@ -12,17 +12,17 @@ public class Inicializador implements WebApplicationInitializer {
 
     @Override
     public void onStartup(ServletContext container) {
-      // Registra la clase de configuración del modelo
+      // Registra la clase de configuraciÃ³n del modelo
       AnnotationConfigWebApplicationContext rootContext =
         new AnnotationConfigWebApplicationContext();
       rootContext.register(SpringConfig.class);
       
-      // Registra la clase de configuración del controlador
+      // Registra la clase de configuraciÃ³n del controlador
       AnnotationConfigWebApplicationContext dispatcherContext =
         new AnnotationConfigWebApplicationContext();
       dispatcherContext.register(MvcConfig.class);
       
-      // Gestiona el ciclo de vida del contexto de aplicación
+      // Gestiona el ciclo de vida del contexto de aplicaciÃ³n
       container.addListener(new ContextLoaderListener(rootContext));     
 
       // Crea y registra el DispatcherServlet

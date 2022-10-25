@@ -65,7 +65,11 @@ function response(data) {
 	sum = decimalFormat(sum);
 	negative = 	parseInt(sum) > 0 ? "" : "negative";
 
-	$("#saldo").html("<p id='saldo' class='"+ negative + "'>Total: " + (sum.split(",")[0] + "," + sum.split(",")[1].substring(0,2) )  + "</p>");
+	if (sum.split(",")[1]) {
+		decimals =  sum.split(",")[1].substring(0,2)
+	}
+
+	$("#saldo").html("<p id='saldo' class='"+ negative + "'>Total: " + (sum.split(",")[0] + "," + decimals )  + "</p>");
 
 }
 
