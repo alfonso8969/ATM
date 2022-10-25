@@ -47,6 +47,7 @@ function response(data) {
 	let cadena = "";
 	let sum = 0;
 	let negative = "";
+	let decimals = "0";
 
 	for (let mv of data) {
 		if (mv.transactionType === ex || mv.transactionType === "transferencia enviada") {

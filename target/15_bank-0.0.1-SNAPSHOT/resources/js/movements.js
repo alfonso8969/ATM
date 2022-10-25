@@ -14,11 +14,11 @@ $(document).ready(function () {
 		maxDate: "+1d"
 	});
 
-	var date = new Date();
-	var val = formatDate(date, false);
+	let date = new Date();
+	let val = formatDate(date, false);
 	$("#dateInit").datepicker();
 	$("#dateEnd").datepicker();
-	var dateformat = "yy-mm-dd";
+	let dateformat = "yy-mm-dd";
 	$("#dateInit").datepicker("option", "dateFormat", dateformat);
 	$("#dateEnd").datepicker("option", "dateFormat", dateformat);
 	$("#dateInit").val(val)
@@ -27,10 +27,10 @@ $(document).ready(function () {
 
 function getMovementsBetweendates() {
 
-	var dateFrom = $("#dateInit").val() + " 00:00:00";
-	var dateTo = $("#dateEnd").val() + " 00:00:00";
+	let dateFrom = $("#dateInit").val() + " 00:00:00";
+	let dateTo = $("#dateEnd").val() + " 00:00:00";
 
-	var formData = {
+	let formData = {
 		idAccount: $("#idAccount").val(),
 		dateFrom: dateFrom,
 		dateTo: dateTo
@@ -43,12 +43,13 @@ function getMovementsBetweendates() {
 
 
 function response(data) {
-	var ex = $("#idExtr").text();
-	var cadena = "";
-	var sum = 0;
-	var negative = "";
+	let ex = $("#idExtr").text();
+	let cadena = "";
+	let sum = 0;
+	let negative = "";
+	let decimals = "0";
 
-	for (var mv of data) {
+	for (let mv of data) {
 		if (mv.transactionType === ex || mv.transactionType === "transferencia enviada") {
 			sum -= mv.amount;
 			negative = "negative";
@@ -65,7 +66,11 @@ function response(data) {
 	sum = decimalFormat(sum);
 	negative = 	parseInt(sum) > 0 ? "" : "negative";
 
-	$("#saldo").html("<p id='saldo' class='"+ negative + "'>Total: " + (sum.split(",")[0] + "," + sum.split(",")[1].substring(0,2) )  + "</p>");
+	if (sum.split(",")[1]) {
+		decimals =  sum.split(",")[1].substring(0,2)
+	}
+
+	$("#saldo").html("<p id='saldo' class='"+ negative + "'>Total: " + (sum.split(",")[0] + "," + decimals )  + "</p>");
 
 }
 

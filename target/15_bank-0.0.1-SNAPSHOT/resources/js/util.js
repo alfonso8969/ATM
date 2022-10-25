@@ -3,7 +3,7 @@
  * @param {string} number string of numbers
  * @returns {string} a number formated whit dots and commas
  */
-var formatNumber = {
+let formatNumber = {
 	separador: ".", // separador para los miles
 	sepDecimal: ',', // separador para los decimales
 	first: 0,
@@ -11,10 +11,10 @@ var formatNumber = {
 		num +='';
 		if(!num.includes(',') && this.first === 0) {
 			if(num.includes(',')) this.first = 1;
-			var splitStr = num.split('.');
-			var splitLeft = splitStr[0];
-			var splitRight = splitStr.length > 1 ? this.sepDecimal + splitStr[1] : '';
-			var regx = /(\d+)(\d{3})/;
+			let splitStr = num.split('.');
+			let splitLeft = splitStr[0];
+			let splitRight = splitStr.length > 1 ? this.sepDecimal + splitStr[1] : '';
+			let regx = /(\d+)(\d{3})/;
 			while (regx.test(splitLeft)) {
 				splitLeft = splitLeft.replace(regx, '$1' + this.separador + '$2');
 			}
@@ -33,8 +33,8 @@ var formatNumber = {
  * @param {string} number string of numbers format whit dots
  * @returns {string} a string without dots
  */
-var numberToInt = (number) => {
-	var nums = [];
+let numberToInt = (number) => {
+	let nums = [];
 	if (number.includes(".")) {
 		nums = number.split(".");
 		return parseInt(nums[0]) + "" + parseInt(nums[1]);
@@ -48,7 +48,7 @@ var numberToInt = (number) => {
  * @returns {string} a string with dots and commas
  */
 function decimalFormat(number) {
-	var parts = number.toString().split(".");
+	let parts = number.toString().split(".");
 	parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".")
 	return parts.join(",");
 }
@@ -61,26 +61,26 @@ function decimalFormat(number) {
  * @param {boolean} time to distinguish types
  */
 function formatDate(date, time) {
-	var day;
-	var month;
-	var year;
+	let day;
+	let month;
+	let year;
 
 	if (!time) {
 		day = date.getDate();
 	} else {
-		day = date.dayOfMonth
+		day = date[2]
 	}
 
 	if (!time) {
 		month = date.getMonth() + 1;
 	} else {
-		month = date.monthValue
+		month = date[1]
 	}
 
 	if (!time) {
 		year = date.getFullYear();
 	} else {
-		year = date.year
+		year = date[0]
 	}
 
 	if (day < 10) {
