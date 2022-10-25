@@ -1,9 +1,8 @@
 package com.atm.model;
 
-import java.io.Serializable;
 import java.util.List;
 
-public class Client extends User implements Serializable {
+public class Client extends User {
 	private static final long serialVersionUID = 1L;
 
 	private List<Account> accounts;

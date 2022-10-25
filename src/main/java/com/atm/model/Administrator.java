@@ -1,11 +1,10 @@
 package com.atm.model;
 
-import java.io.Serializable;
 import java.util.List;
 
 import com.atm.util.Rol;
 
-public class Administrator extends User implements Serializable {
+public class Administrator extends User {
 	private static final long serialVersionUID = 1L;
 	
 	private List<Client> clients;
