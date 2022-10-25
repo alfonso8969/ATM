@@ -14,11 +14,11 @@ $(document).ready(function () {
 		maxDate: "+1d"
 	});
 
-	var date = new Date();
-	var val = formatDate(date, false);
+	let date = new Date();
+	let val = formatDate(date, false);
 	$("#dateInit").datepicker();
 	$("#dateEnd").datepicker();
-	var dateformat = "yy-mm-dd";
+	let dateformat = "yy-mm-dd";
 	$("#dateInit").datepicker("option", "dateFormat", dateformat);
 	$("#dateEnd").datepicker("option", "dateFormat", dateformat);
 	$("#dateInit").val(val)
@@ -27,10 +27,10 @@ $(document).ready(function () {
 
 function getMovementsBetweendates() {
 
-	var dateFrom = $("#dateInit").val() + " 00:00:00";
-	var dateTo = $("#dateEnd").val() + " 00:00:00";
+	let dateFrom = $("#dateInit").val() + " 00:00:00";
+	let dateTo = $("#dateEnd").val() + " 00:00:00";
 
-	var formData = {
+	let formData = {
 		idAccount: $("#idAccount").val(),
 		dateFrom: dateFrom,
 		dateTo: dateTo
@@ -43,12 +43,12 @@ function getMovementsBetweendates() {
 
 
 function response(data) {
-	var ex = $("#idExtr").text();
-	var cadena = "";
-	var sum = 0;
-	var negative = "";
+	let ex = $("#idExtr").text();
+	let cadena = "";
+	let sum = 0;
+	let negative = "";
 
-	for (var mv of data) {
+	for (let mv of data) {
 		if (mv.transactionType === ex || mv.transactionType === "transferencia enviada") {
 			sum -= mv.amount;
 			negative = "negative";

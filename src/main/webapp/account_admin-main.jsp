@@ -47,7 +47,7 @@
                   <a id="showCounts" onclick="location.href='doGetAllAccounts?page=account_admin_accounts'" class="btn btn-lg btn-primary btn-padding" title="Alta cuenta">Ver cuentas</a>
                 </div>
               </div>
-              <div class="col-xs-4" adm>
+              <div class="col-xs-4 adm">
                 <div class="tile">
                   <a id="updateClient" onclick="location.href='doGetAll?page=account_admin_edit_client'" class="btn btn-lg btn-primary btn-padding" title="Actualizar cliente">Act. cliente</a>
                 </div>
