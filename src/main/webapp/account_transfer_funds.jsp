@@ -38,7 +38,7 @@
 								<button type="button" data-toggle="modal" data-target="#fromAccount" class="btn btn-block btn-lg btn-inverse">
 									<h6>
 										<input type="text" name="idAccountFrom" id="idAccountFrom" value="****" />
-										<input type="text" name="opTypeFrom" style="display: none" value="<%=TransactionType.WITHDRAWL_TRANSACTION%>" /> 
+										<input type="text" name="opTypeFrom" style="display: none" value="<%=TransactionType.WITHDRAWAL_TRANSACTION%>" /> 
 									</h6>
 								</button>
 							</div>
@@ -136,12 +136,7 @@
 			</div>
 			<!--  // END column-->
 			<div class="col-xs-12">
-				<h2>
-					<blockquote>
-						Este sistema de cajero autom&aacute;tico es solo para pruebas de
-						software! --- <a href="#">Alf&copy; 2021</a>
-					</blockquote>
-				</h2>
+				<jsp:directive.include file="head.html" />	
 			</div>
 		</div>
 		<!-- // END row-->

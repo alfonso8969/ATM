@@ -106,4 +106,16 @@ public class UserDaoImpl implements UserDao {
 		}
 	}
 
+    @Override
+    public int findUserIdByIdAccount(int idAccount) {        
+        String query = "SELECT idCliente FROM titulares WHERE idCuenta = ?";
+        try {
+            int result = template.queryForObject(query, Integer.class, idAccount);
+            return result != 0 ? result : 0;
+        } catch (NullPointerException | DataAccessException sqle) {
+            Constants.LOGGER.info("Fallo en conseguir usuario: " + sqle.getMessage());
+            return 0;
+        } 
+    }
+
 }

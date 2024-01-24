@@ -42,9 +42,9 @@ public class AdminComtroller {
 	public String saveNewClient(@ModelAttribute("client") Client client, HttpServletRequest request) {
 		client.setRol(Rol.CLIENT.getRolType());
 		if (adminser.saveClient(client) == -1) {
-			request.setAttribute(Constants.ERROR, String.format("El dni %s ya est· registrado", client.getDni()));
+			request.setAttribute(Constants.ERROR, String.format("El dni %s ya est√° registrado", client.getDni()));
 		} else if (adminser.saveClient(client) != 0) {
-			request.setAttribute(Constants.SUCCESS, String.format("El cliente %s se creÛ con Èxito", client.getName()));
+			request.setAttribute(Constants.SUCCESS, String.format("El cliente %s se cre√≥ con √©xito", client.getName()));
 		} else {
 			request.setAttribute(Constants.ERROR, Constants.ERROR_OP);
 		}
@@ -54,7 +54,7 @@ public class AdminComtroller {
 	@PostMapping("doUpdateClient")
 	public String updateClient(@ModelAttribute("client") Client client, HttpServletRequest request) {
 		if (adminser.updateClient(client, ((User) request.getSession().getAttribute("userSelected")).getDni()) != 0) {
-			request.setAttribute(Constants.SUCCESS, String.format("El cliente %s se actualizÛ con Èxito", client.getName()));
+			request.setAttribute(Constants.SUCCESS, String.format("El cliente %s se actualiz√≥ con √©xito", client.getName()));
 		} else {
 			request.setAttribute(Constants.ERROR, Constants.ERROR_OP);
 		}
@@ -65,7 +65,7 @@ public class AdminComtroller {
 	public String deleteClient(HttpServletRequest request) {
 		int idClient = Integer.parseInt(request.getParameter("idClient"));
 		if(adminser.deleteClient(idClient) != 0) {
-			request.setAttribute(Constants.SUCCESS, String.format("El cliente con DNI %s se borrÛ con Èxito", idClient));
+			request.setAttribute(Constants.SUCCESS, String.format("El cliente con DNI %s se borr√≥ con √©xito", idClient));
 		} else {
 			request.setAttribute(Constants.ERROR, Constants.ERROR_OP);
 		}		

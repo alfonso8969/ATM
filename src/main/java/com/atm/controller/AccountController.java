@@ -23,30 +23,30 @@ public class AccountController {
 	public String operation(HttpSession session, HttpServletRequest request) {
 		int idAccount = ((Account) session.getAttribute("account")).getIdAccount();// Id de la cuenta
 		Double amount = Util.covertAmount(request.getParameter("amount"));// Cantidad
-		String operation = request.getParameter("opType"); // Tipo de transacci髇 para guardar en BBDD
-		TransactionType typeOfTransaction = TransactionType.valueOf(operation);// Tipo de transacci髇 para mostrar en mensaje
+		String operation = request.getParameter("opType"); // Tipo de transacci贸n para guardar en BBDD
+		TransactionType typeOfTransaction = TransactionType.valueOf(operation);// Tipo de transacci贸n para mostrar en mensaje
 		
-		// Comprobamos si la operaci髇 es retirar dinero , para comprobar el saldo
-		if(typeOfTransaction.getTransactionType().equals(Constants.WITHDRAWL)
+		// Comprobamos si la operaci贸n es retirar dinero , para comprobar el saldo
+		if(typeOfTransaction.getTransactionType().equals(Constants.WITHDRAWAL)
 			&& accser.checkBalance(idAccount, amount) == 0) {
 			request.setAttribute(Constants.ERROR, "Tu saldo es inferior a " + amount);
 			return request.getParameter("page");
 		}
 		// Enviamos los datos para actualizar las cuentas
 		if(accser.updateAccount(idAccount, amount, operation) != 0) {
-			// Actualizamos la cuenta de sesi髇 con nuevo saldo
+			// Actualizamos la cuenta de sesi贸n con nuevo saldo
 			if(accser.setAccount(session, idAccount)) {
-				// Configurar mensaje de 閤ito en la operaci髇
-				request.setAttribute(Constants.SUCCESS, String.format("Operaci髇 %s realizada con 閤ito", typeOfTransaction.getTransactionType()));
+				// Configurar mensaje de 茅xito en la operaci贸n
+				request.setAttribute(Constants.SUCCESS, String.format("Operaci贸n %s realizada con 茅xito", typeOfTransaction.getTransactionType()));
 			} else {
-				// Configurar mensaje de error en la operaci髇
+				// Configurar mensaje de error en la operaci贸n
 				request.setAttribute(Constants.ERROR, Constants.ERROR_OP);
 			}			
 		} else {
 			// Configurar mensaje de error en operaciones
-			request.setAttribute(Constants.ERROR, "La operaci髇 no se pudo realizar");			
+			request.setAttribute(Constants.ERROR, "La operaci贸n no se pudo realizar");			
 		}
-		// retornamos ala p醙ina, ya sea ingreso n efectivo o ingreso en cheque
+		// retornamos ala p谩gina, ya sea ingreso n efectivo o ingreso en cheque
 		return request.getParameter("page");
 				
 	}

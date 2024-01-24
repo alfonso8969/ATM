@@ -68,7 +68,7 @@
 									<h6>Haga clic en un bot&oacute;n para obtener esa cantidad de efectivo.</h6>
 									<h6>o ingrese un m&uacute;ltiplo de 20&euro; ó 50&euro;. Debe ser inferior a 600&euro;</h6>
 									<input type="text" id="qcWithdrawFounds" name="amount" class="form-control" placeholder="20.00"  />
-									<input type="text" name="opType" style="display: none" value="<%=TransactionType.WITHDRAWL%>" /> 
+									<input type="text" name="opType" style="display: none" value="<%=TransactionType.WITHDRAWAL%>" /> 
 									<input type="text" name="page" style="display: none" value="account_withdrawl" />
 									<!-- Number Keys -->
 
@@ -134,11 +134,7 @@
 			</div>
 			<!--  // END column-->
 			<div class="col-xs-12">
-				<h2>
-					<blockquote>
-						Este sistema de cajero autom&aacute;tico es solo para pruebas de software! --- <a href="#">Alf&copy; 2021</a>
-					</blockquote>
-				</h2>
+				<jsp:directive.include file="head.html" />	
 			</div>
 		</div>
 		<!-- // END row-->

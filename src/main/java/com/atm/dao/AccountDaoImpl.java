@@ -54,20 +54,20 @@ public class AccountDaoImpl implements AccountDao {
 	}
 	
 	/**
-	 * Funci髇 que actualiza el saldo de la cuenta
-	 * dependiendo si la operaci髇 es de retirada de
+	 * Funci贸n que actualiza el saldo de la cuenta
+	 * dependiendo si la operaci贸n es de retirada de
 	 * o ingreso
 	 * 
-	 * @param transaction  {@code String} tipo de transacci髇
+	 * @param transaction  {@code String} tipo de transacci贸n
 	 * @param idAcocunt {@code int} id de la cuenta
-	 * @param amount {@code double} cantidad de la operaci髇
+	 * @param amount {@code double} cantidad de la operaci贸n
 	 * 
-	 * @return {@code int} n鷐ero de filas aceptadas
+	 * @return {@code int} n煤mero de filas aceptadas
 	 * */
 	private int saveBalance(String transaction, int idAccount, double amount ) {
 		String query = "UPDATE cuentas AS c1 INNER JOIN (SELECT balance FROM cuentas WHERE idAccount = ?) AS c2 SET c1.balance = (c2.balance + ?) WHERE idAccount = ?";
 		try {			
-			if (transaction.equals(Constants.WITHDRAWL) || transaction.equals(Constants.TRANSACTION_SENDED)) {
+			if (transaction.equals(Constants.WITHDRAWAL) || transaction.equals(Constants.TRANSACTION_SENDED)) {
 				amount *= -1;
 			}
 			return template.update(query, idAccount, amount, idAccount);

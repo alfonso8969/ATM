@@ -39,17 +39,19 @@ public class AccountAdminController {
 	@PostMapping("doLogin")
 	public String login(HttpSession session, HttpServletRequest request) {
 		User user =  null;
-		int id = Integer.parseInt(request.getParameter("idAccount"));
-		if(userser.getUser(session, id)) {	
+		int idAccount = Integer.parseInt(request.getParameter("idAccount"));
+		
+		int idUser = userser.getUser(idAccount);
+		if(userser.getUser(session, idUser)) {	
 			user = (User) session.getAttribute("user");
 			if(user.getRol().equalsIgnoreCase(Rol.ADMIN.getRolType()))
 				return "account_admin-main";
 //			else
 //				return "account_avalilable_acounts";
 		}
-		// Comprobamos si la cuenta existe y se guarda en sesiÛn
-		if(accser.setAccount(session, id)) {
-			// si existe nos dirigimos a la p·gina de opciones
+		// Comprobamos si la cuenta existe y se guarda en sesi√≥n
+		if(accser.setAccount(session, idAccount)) {
+			// si existe nos dirigimos a la p√°gina de opciones
 			return "account_options";
 		}
 		// Si no existe configuramos mensaje de error
@@ -83,9 +85,9 @@ public class AccountAdminController {
 	@PostMapping("doNewAccount")
 	public String saveNewClient(@ModelAttribute("account") Account account, HttpServletRequest request) {
 		if (accser.getAccount(account.getIdAccount()) != null) {
-			request.setAttribute(Constants.ERROR, String.format("La cuenta %s ya est· registrada", account.getIdAccount()));
+			request.setAttribute(Constants.ERROR, String.format("La cuenta %s ya est√° registrada", account.getIdAccount()));
 		} else if (adminser.saveNewAccount(account) != 0) {
-			request.setAttribute(Constants.SUCCESS, String.format("La cuenta %s se creÛ con Èxito", account.getIdAccount()));
+			request.setAttribute(Constants.SUCCESS, String.format("La cuenta %s se cre√≥ con √©xito", account.getIdAccount()));
 		} else {
 			request.setAttribute(Constants.ERROR, Constants.ERROR_OP);
 		}
@@ -97,7 +99,7 @@ public class AccountAdminController {
 		int idClient = Integer.parseInt(request.getParameter("idClient"));
 		int idAccount = Integer.parseInt(request.getParameter("idAccount"));
 		if(adminser.deleteAccount(idAccount, idClient) != 0) {
-			request.setAttribute(Constants.SUCCESS, String.format("La cuenta %s se borrÛ con Èxito", idAccount));
+			request.setAttribute(Constants.SUCCESS, String.format("La cuenta %s se borr√≥ con √©xito", idAccount));
 		} else {
 			request.setAttribute(Constants.ERROR, Constants.ERROR_OP);
 		}		

@@ -1,9 +1,9 @@
 //import $ from "jquery"
 function selectClient() {
 
-	var idClient = $("#clients").val();
+	let idClient = $("#clients").val();
 
-	var formData = {
+	let formData = {
 		idClient
 	}
 
@@ -14,10 +14,10 @@ function selectClient() {
 
 function response(data) { 
 
-	var cadena = "";
-	var negative = "";
+	let cadena = "";
+	let negative = "";
 
-	for (var cu of data) {
+	for (let cu of data) {
 		cadena += "<tr><td>" + cu.idAccount + "</td>";
 		cadena += "<td>" + cu.accountType + "</td>";
 		negative = 	parseInt(cu.balance) > 0 ? "" : "negative";

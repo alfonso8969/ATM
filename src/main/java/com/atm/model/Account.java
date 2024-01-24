@@ -5,9 +5,7 @@ import java.util.List;
 
 public class Account implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
-	
-	
+
 	private int idAccount;
 	private int idClient;
 	private double balance;
@@ -58,8 +56,6 @@ public class Account implements Serializable {
 		this.idClient = idClient;
 	}
 
-
-
 	public final double getBalance() {
 		return balance;
 	}
@@ -75,5 +71,4 @@ public class Account implements Serializable {
 	public final void setAccountType(String accountType) {
 		this.accountType = accountType;
 	}
-
 }

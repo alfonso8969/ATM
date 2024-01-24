@@ -8,32 +8,65 @@ import com.atm.model.Client;
 import com.atm.model.User;
 
 public interface UserDao {
-	
-	/**
-	 * Funci髇 que retorna un Usuario
-	 * @param idUser
-	 * @return {@code User} un usuario
-	 * Tanto un Cliente como un Administrador
-	 */
-	User findById(int idUser);
-	
-	/**
-	 * Funci髇 que retorna todos los Clientes
-	 * @return {@code List<User>} Lista de usuarios
-	 */
-	List<User> findAll();
-	/**
-	 * Funci髇 que recoge el usuario de la BBDD, 
-	 * se realiza despu閟 de una operaci髇 para refrescar
-	 * los datos guardados en la sesi髇
-	 * 
-	 * @param session {@code HttpSession} sesi髇 de la aplicaci髇
-	 * @param idUser {@code int} Id del usuario
-	 * @return {@code boolean} 
-	 * true si la operaci髇 se realizo correctamente, de otra manera false
-	 */
-	public boolean setSessionUser(HttpSession session, int idUser);
-	int saveClient(Client client);
-	int updateClient(Client client, int idClient);
-	int deleteClient(int idClient);
+
+    /**
+     * Funci贸n que retorna un Usuario
+     * 
+     * @param idUser
+     * @return {@code User} un usuario
+     *         Tanto un Cliente como un Administrador
+     */
+    User findById(int idUser);
+    
+    /**
+     * Funci贸n que encuentra el id de usuario, a trav茅s del id de la cuenta
+     * @param idAccount
+     * @return {@code int} el id del usuario
+     */
+    int findUserIdByIdAccount(int idAccount);
+
+    /**
+     * Funci贸n que retorna todos los Clientes
+     * 
+     * @return {@code List<User>} Lista de usuarios
+     */
+    List<User> findAll();
+
+    /**
+     * Funci贸n que recoge el usuario de la BBDD,
+     * se realiza despu茅s de una operaci贸n para refrescar
+     * los datos guardados en la sesi贸n
+     * 
+     * @param session {@code HttpSession} sesi贸n de la aplicaci贸n
+     * @param idUser  {@code int} Id del usuario
+     * @return {@code boolean}
+     *         true si la operaci贸n se realizo correctamente, de otra manera false
+     */
+    public boolean setSessionUser(HttpSession session, int idUser);
+
+    /**
+     * Funci贸n que guarda un nuevo Cliente
+     * 
+     * @param client {@code Client} Un objeto Cliente
+     * @return {@code int} Un n煤mero, mayor que cero se realizo correctamente, de otra manera false,
+     */
+    int saveClient(Client client);
+
+    /**
+     * Funci贸n que actualiza un Cliente
+     * 
+     * @param client {@code Client} Un objeto Cliente
+     * @param idClient {@code int} Id del cliente
+     * 
+     * @return {@code int} Un n煤mero, mayor que cero se realizo correctamente, de otra manera false,
+     */
+    int updateClient(Client client, int idClient);
+
+    /**
+     * Funci贸n que borra un Cliente
+     * 
+     * @param idClient {@code int} Id del cliente
+     * @return {@code int} Un n煤mero, mayor que cero se realizo correctamente, de otra manera false,
+     */
+    int deleteClient(int idClient);
 }

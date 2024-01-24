@@ -20,7 +20,7 @@ function s() {
 var insertMoney = (number) => {
 	if (number === 0 && amount.length == 0) return;
 	
-	amount += number+"";
+	amount += number + "";
 	if (amount.length > 5) return;
 	if (amount.length > 1) s();
 	var c = formatNumber.new(amount);

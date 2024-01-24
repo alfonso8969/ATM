@@ -46,4 +46,9 @@ public class UserServiceImpl implements UserService {
 	public int deleteClient(int idClient) {
 		return uRepository.deleteClient(idClient);
 	}
+
+    @Override
+    public int getUser(int idAccount) {        
+        return uRepository.findUserIdByIdAccount(idAccount);
+    }
 }

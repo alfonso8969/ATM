@@ -79,7 +79,7 @@
           <!-- 1/4 -->
           <div class="col-xs-3 adm">
             <div class="tile">
-              <a id="logout" href="topin" class="btn btn-lg btn-info text-uppercase btn-padding" title="Cerrar sesión administrador"><span
+              <a id="logout" href="toPin" class="btn btn-lg btn-info text-uppercase btn-padding" title="Cerrar sesión administrador"><span
                   class="fui-user"></span> Logout</a>
             </div>
             <div class="tile">
@@ -91,16 +91,9 @@
       </div><!--  // END column-->
 
       <div class="col-xs-12">
-        <h2>
-          <blockquote>
-            Este sistema de cajero autom&aacute;tico es solo para pruebas de software! --- <a href="#">Alf&copy; 2021</a>
-          </blockquote>
-        </h2>
+		<jsp:directive.include file="footer.html" />	
       </div>
     </div><!-- // END row-->
-
-
-
 
   </div> <!-- /container -->
 

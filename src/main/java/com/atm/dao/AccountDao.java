@@ -4,13 +4,25 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
+import org.springframework.stereotype.Service;
+
 import com.atm.model.Account;
 import com.atm.util.TransactionType;
 
+ /**
+  * 
+  * Interfaz que define las operaciones de la BBDD
+  * para la tabla Account
+  * 
+  * @version 1.0
+  * @since 2021-02-07
+  *
+  */
+@Service
 public interface AccountDao {
 	/**
 	 * 
-	 * Función que retorna todas cuentas
+	 * Funciï¿½n que retorna todas cuentas
 	 * 
 	 * @return {@code List<Account>} Lista de cuentas
 	 */
@@ -18,7 +30,7 @@ public interface AccountDao {
 	
 	/**
 	 * 
-	 * Función que retorna una cuenta por su Id
+	 * Funciï¿½n que retorna una cuenta por su Id
 	 * 
 	 * @param idAccount {@code int} Id de la cuenta
 	 * @return {@code Account} Cuenta
@@ -26,17 +38,17 @@ public interface AccountDao {
 	Account findById(int idAccount);
 	/**
 	 * 
-	 * Función que actualiza el saldo de una cuenta
+	 * Funciï¿½n que actualiza el saldo de una cuenta
 	 * 
 	 * @param idAccount {@code int} Id de la cuenta
 	 * @param amount {@code double} cantidad a actualizar
-	 * @param typeOfTransaction {@code String} Tipo de operación 
-	 * @return {@code int} número de filas aceptadas en la sentencia SQL
+	 * @param typeOfTransaction {@code String} Tipo de operaciï¿½n 
+	 * @return {@code int} nï¿½mero de filas aceptadas en la sentencia SQL
 	 */
 	int updateAccountBalance(int idAccount, double amount, TransactionType typeOfTransaction);
 	
 	/**
-	 * Función que obtiene si el saldo es menor a la
+	 * Funciï¿½n que obtiene si el saldo es menor a la
 	 * cantidad a extraer o a transferir usando una 
 	 * sentencia SQL que devuelve que devuelve 0 si es
 	 * menor y 1 si es mayor 
@@ -48,14 +60,14 @@ public interface AccountDao {
 	int findBalanceByIdAccount(int idAccount, double balance);
 	
 	/**
-	 * Función que recoge la cuenta de la BBDD, 
-	 * se realiza después de una operación para refrescar
-	 * los datos guardados en la sesión
+	 * Funciï¿½n que recoge la cuenta de la BBDD, 
+	 * se realiza despuï¿½s de una operaciï¿½n para refrescar
+	 * los datos guardados en la sesiï¿½n
 	 * 
-	 * @param session {@code HttpSession} sesión de la aplicación
+	 * @param session {@code HttpSession} sesiï¿½n de la aplicaciï¿½n
 	 * @param idAccount {@code int} Id de la cuenta
 	 * @return {@code boolean} 
-	 * true si la operación se realizo correctamente, de otra manera false
+	 * true si la operaciï¿½n se realizo correctamente, de otra manera false
 	 */
 	public boolean setSessionAccount(HttpSession session, int idAccount);
 }

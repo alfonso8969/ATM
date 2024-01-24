@@ -67,11 +67,11 @@ public class AccountAdminDaoImpl implements AccountAdminDao {
 
 	@Override
 	public int referenceAccountClient(int idAccount, int idClient) {
-		String query = "INSERT INTO titulares (idAccount, idClient) VALUES (?,?)";
+		String query = "INSERT INTO titulares (idAccount, idCliente) VALUES (?,?)";
 		try {
 			return template.update(query, idAccount, idClient);
 		} catch (DataAccessException  sqle) {
-			Constants.LOGGER.severe("Fallo en crear relación cliente/cuenta usuarios: " + sqle.getMessage());
+			Constants.LOGGER.severe("Fallo en crear relaciÃ³n cliente/cuenta usuarios: " + sqle.getMessage());
 			return 0;
 		}	
 	}
@@ -82,7 +82,7 @@ public class AccountAdminDaoImpl implements AccountAdminDao {
 		try {
 			return template.update(query, idAccount, idClient);
 		} catch (DataAccessException  sqle) {
-			Constants.LOGGER.severe("Fallo en borrar relación cliente/cuenta usuarios: " + sqle.getMessage());
+			Constants.LOGGER.severe("Fallo en borrar relaciÃ³n cliente/cuenta usuarios: " + sqle.getMessage());
 			return 0;
 		}	
 	}
@@ -100,11 +100,11 @@ public class AccountAdminDaoImpl implements AccountAdminDao {
 
 	@Override
 	public List<Account> getAccountsOfClient(int idClient) {
-		String query = "SELECT * FROM cuentas WHERE idAccount IN (SELECT idAccount FROM titulares WHERE idClient = ?)";
+		String query = "SELECT * FROM cuentas WHERE idAccount IN (SELECT idAccount FROM titulares WHERE idCliente = ?)";
 		try {
 			return template.query(query, new BeanPropertyRowMapper<Account>(Account.class), idClient );
 		} catch (DataAccessException  sqle) {
-			Constants.LOGGER.severe("Fallo en consegui cuentas cliente: " + sqle.getMessage());
+			Constants.LOGGER.severe("Fallo en conseguir cuentas cliente: " + sqle.getMessage());
 			return new ArrayList<>();
 		}	
 	}
