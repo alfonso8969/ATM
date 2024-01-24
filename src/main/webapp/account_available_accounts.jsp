@@ -49,7 +49,7 @@
       	  	</div> <!-- // END OPTIONS-->
       </div><!--  // END column-->
       <div class="col-xs-12">
-        <jsp:directive.include file="head.html" />	
+        <jsp:directive.include file="footer.html" />	
       </div>
   </div><!-- // END row-->
 

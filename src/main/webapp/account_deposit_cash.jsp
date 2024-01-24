@@ -129,7 +129,7 @@
 				<!--  // END column-->
 		</div>
 		<div class="col-xs-12">
-			<jsp:directive.include file="head.html" />	
+			<jsp:directive.include file="footer.html" />	
 		</div>
 		<!-- // END row-->
 		<c:if test="${ not empty requestScope.error }">

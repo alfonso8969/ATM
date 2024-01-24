@@ -96,12 +96,7 @@
 				<!--  // END column-->
 			</div>
 			<div class="col-xs-12">
-				<h2>
-					<blockquote>
-						Este sistema de cajero autom&aacute;tico es solo para pruebas de
-						software! --- <a href="#">Alf&copy; 2021</a>
-					</blockquote>
-				</h2>
+				<jsp:directive.include file="footer.html" />	
 			</div>
 		</div>
 		<!-- // END row-->
