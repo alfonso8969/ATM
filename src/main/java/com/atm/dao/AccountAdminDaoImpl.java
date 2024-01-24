@@ -100,7 +100,7 @@ public class AccountAdminDaoImpl implements AccountAdminDao {
 
 	@Override
 	public List<Account> getAccountsOfClient(int idClient) {
-		String query = "SELECT * FROM cuentas WHERE idAccount IN (SELECT idAccount FROM titulares WHERE idCliente = ?)";
+		String query = "SELECT * FROM cuentas WHERE idAccount IN (SELECT idCuenta FROM titulares WHERE idCliente = ?)";
 		try {
 			return template.query(query, new BeanPropertyRowMapper<Account>(Account.class), idClient );
 		} catch (DataAccessException  sqle) {
